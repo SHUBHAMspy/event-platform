@@ -1,15 +1,17 @@
 import React from 'react'
 import ThemeSelection from '../../components/themeSelection/ThemeSelection'
+import TextEditor from '../../components/tools/textEditor/TextEditor'
 
 const ThumbnailCreator = () => {
   return (
-    <div>
-      <div className='rounded-lg w-96 h-96 '>
+    <section>
+      <div className='rounded-lg w-full h-80 bg-slate-100'>
 
       </div>
-      <ThemeSelection/>
+      {/* <ThemeSelection/> */}
+      <TextEditor/>
       
-    </div>
+    </section>
   )
 }
 

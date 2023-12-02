@@ -27,21 +27,22 @@ const GradientGenerator = () => {
   };
 
   return (
-    <div>
-      <div style={gradientStyle}>
+    <div className='relative'>
+      {/* <div style={gradientStyle}>
         <h1>Your Gradient Background</h1>
-      </div>
-      <div>
-        <label>
-          Start Color:
-          <input type="color" value={startColor} onChange={handleStartColorChange} />
-        </label>
-        <br />
-        <label>
-          End Color:
-          <input type="color" value={endColor} onChange={handleEndColorChange} />
-        </label>
-        <br />
+      </div> */}
+      <div className='absolute flex flex-col'>
+        <div className='flex items-center justify-between'>
+          <label>
+            Start Color:
+            <input type="color" value={startColor} onChange={handleStartColorChange} />
+          </label>
+          <br />
+          <label>
+            End Color:
+            <input type="color" value={endColor} onChange={handleEndColorChange} />
+          </label>     
+        </div>
         <label>
           Direction:
           <select value={direction} onChange={handleDirectionChange}>

@@ -8,7 +8,7 @@ import ThumbnailCreator from '../../sections/thumbnailCreator/ThumbnailCreator'
 
 const EventPage = () => {
   return (
-    <div className='container mx-auto bg-white w-full p-6'>
+    <div className='container mx-auto bg-white w-full p-6 rounded-xl'>
       <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
         <div>
           <Title/>

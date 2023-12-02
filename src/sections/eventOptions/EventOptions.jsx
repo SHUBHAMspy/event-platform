@@ -6,7 +6,7 @@ const EventOptions = () => {
   return (
     <section className='mt-10'>
       <h6>Event Options</h6>
-      <div className='bg-slate-100 p-2 rounded-lg'>
+      <div className='bg-slate-100 p-2 rounded-xl'>
         {
           options.map((option) => (
             <div className='flex items-center justify-between'>
