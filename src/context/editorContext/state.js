@@ -11,8 +11,12 @@ const initialEditorState = {
   href: '',
   fontSize: 40,
   fontFamily: 'arial',
-  width: 400,
-  height: 400,
+  width: 320,
+  height: 290,
+  startColor: '',
+  endColor: '',
+  direction:''
+
 }
 
 export default initialEditorState
