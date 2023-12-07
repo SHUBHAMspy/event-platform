@@ -1,17 +1,30 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import DatePicker from '../../components/datePicker/DatePicker'
 import { MapPinIcon,CalendarDaysIcon } from '@heroicons/react/24/outline'
 import 'react-time-picker/dist/TimePicker.css';
 import 'react-clock/dist/Clock.css';
 import TimeField from 'react-simple-timefield';
+import { EventContext } from '../../context/eventContext/EventContext';
+import { setEndDate, setStartDate } from '../../context/eventContext/actions';
 
 const EventInfo = () => {
-  const [startDate, setStartDate] = useState(null)
-  const [endDate, setEndDate] = useState(null)
+  const {state,dispatch} = useContext(EventContext)
+  // const [startDate, setStartDate] = useState(state.startDate)
+  // const [endDate, setEndDate] = useState(null)
   const [openStartCalendar, setOpenStartCalendar] = useState(false)
   const [openEndCalendar, setOpenEndCalendar] = useState(false)
   const [openTimer, setOpenTimer] = useState()
   const [first, setfirst] = useState('')
+  console.log(state);
+
+  const handleStartDate = (date) => {
+    setStartDate(dispatch,date)
+  }
+  const handleEndDate = (date) => {
+    setEndDate(dispatch,date)
+  }
+
+
   return (
     <section>
       <div className='flex gap-4'>
@@ -24,13 +37,13 @@ const EventInfo = () => {
                 className='ml-1 mb-2 h-8 sm:w-1/2 bg-slate-200 outline-none relative rounded-md' 
                 placeholder='Date'
                 onFocus={() => setOpenStartCalendar(true)}
-                value={startDate}
+                value={state.startDate}
               />
               {
                 openStartCalendar 
                 ? (
                   <div className='absolute top-10 z-50'>
-                    <DatePicker setDate={setStartDate} date={startDate} setOpenCalendar={setOpenStartCalendar}/>
+                    <DatePicker setDate={handleStartDate} date={state.startDate} setOpenCalendar={setOpenStartCalendar}/>
                   </div>
                 )
                 : null 
@@ -45,13 +58,13 @@ const EventInfo = () => {
                 className='ml-1 mb-2 h-8 sm:mb-0 sm:w-1/2 bg-gray-200 outline-none rounded-md relative' 
                 placeholder='Date'
                 onFocus={() => setOpenEndCalendar(true)}
-                value={endDate}
+                value={state.endDate}
               />
               {
                 openEndCalendar 
                 ? (
                   <div className='absolute top-16'>
-                    <DatePicker setDate={setEndDate} date={endDate} setOpenCalendar={setOpenEndCalendar}/>
+                    <DatePicker setDate={handleEndDate} date={state.endDate} setOpenCalendar={setOpenEndCalendar}/>
                   </div>
                 )
                 : null 

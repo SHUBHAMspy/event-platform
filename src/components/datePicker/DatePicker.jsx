@@ -6,7 +6,13 @@ import 'react-date-range/dist/theme/default.css'; // theme css file
 const DatePicker = ({setDate,date,setOpenCalendar}) => {
   return (
     <div>
-      <Calendar date={date} onChange={(item) => {setDate(item); setOpenCalendar(false)}}/>
+      <Calendar 
+        date={date} 
+        onChange={(item) => {
+          setDate(item)
+          setOpenCalendar(false)
+        }}
+      />
     </div>
   )
 }

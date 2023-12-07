@@ -40,7 +40,7 @@ const Preview = () => {
             ? ''
             : backgroundColor
           ),
-          backgroundImage:  startColor && endColor ? '' : `url(${backgroundImage})`,
+          backgroundImage: `url(${backgroundImage})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           color: textColor,
