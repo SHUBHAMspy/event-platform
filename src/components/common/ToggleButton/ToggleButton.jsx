@@ -9,7 +9,7 @@ const ToggleButton = () => {
     >
       <input 
         type="checkbox" 
-        className='cursor-pointer w-12 h-6 rounded-full appearance-none bg-slate-200 bg-opacity-5 border-purple-600 checked:bg-gray-700 transition duration-200 relative'
+        className='cursor-pointer w-12 h-6 rounded-full appearance-none bg-slate-200  border-purple-600 checked:bg-gray-700 transition duration-200 relative'
         id="toggle-switch" 
       />
       {/* <div

@@ -4,7 +4,7 @@ import { EditorContext } from '../../context/editorContext/EditorContext'
 import { setText } from '../../context/editorContext/actions'
 
 const Preview = () => {
-  const {state:{height,text,fontSize,fontFamily,textColor,backgroundColor,backgroundImage,startColor,endColor,direction},dispatch} = useContext(EditorContext)
+  const {state:{height,text,fontSize,fontFamily,textColor,background,backgroundColor,backgroundImage,startColor,endColor,direction},dispatch} = useContext(EditorContext)
   const [contents, setContents] = useState('')
   const textList = ['You are invited']
 
@@ -31,15 +31,15 @@ const Preview = () => {
         onKeyUp={handleKeyUp}
         suppressContentEditableWarning={true}
         style={{
-          background : `linear-gradient(${direction}, ${startColor}, ${endColor})`,
+          background : background ? background : backgroundColor ? backgroundColor : `linear-gradient(${direction}, ${startColor}, ${endColor})`,
           height: `${height}px`,
-          backgroundColor: (
-            startColor && endColor 
-            ? ''
-            : backgroundImage
-            ? ''
-            : backgroundColor
-          ),
+          // backgroundColor: (
+          //   startColor && endColor 
+          //   ? ''
+          //   : backgroundImage
+          //   ? ''
+          //   : backgroundColor
+          // ),
           backgroundImage: `url(${backgroundImage})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',

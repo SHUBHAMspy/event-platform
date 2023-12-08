@@ -5,7 +5,7 @@ import 'react-time-picker/dist/TimePicker.css';
 import 'react-clock/dist/Clock.css';
 import TimeField from 'react-simple-timefield';
 import { EventContext } from '../../context/eventContext/EventContext';
-import { setEndDate, setStartDate } from '../../context/eventContext/actions';
+import { setEndDate, setEndTime, setStartDate, setStartTime } from '../../context/eventContext/actions';
 
 const EventInfo = () => {
   const {state,dispatch} = useContext(EventContext)
@@ -24,14 +24,22 @@ const EventInfo = () => {
     setEndDate(dispatch,date)
   }
 
+  const handleStartTime = (event,value) => {
+    setStartTime(dispatch,value)
+  }
+  const handleEndTime = (event,value) => {
+    setEndTime(dispatch,value)
+  }
+
+
 
   return (
     <section>
       <div className='flex gap-4'>
-        <CalendarDaysIcon className='h-6 w-6'/>
+        <CalendarDaysIcon className='h-6 w-6 text-gray-500'/>
         <div className='bg-slate-100 p-2 rounded-xl flex flex-col w-full'>
           <div className='flex items-center justify-between'>
-            <span className='items-center w-6'>Start</span>
+            <span className='items-center w-6 text-gray-700'>Start</span>
             <div className='flex flex-col sm:flex-row items-center '>
               <input  
                 className='ml-1 mb-2 h-8 sm:w-1/2 bg-slate-200 outline-none relative rounded-md' 
@@ -48,11 +56,15 @@ const EventInfo = () => {
                 )
                 : null 
               }
-              <input className='ml-1 mb-2 h-8 sm:w-1/2 bg-slate-200 outline-none rounded-md' placeholder='Time'/>
+              <TimeField
+                onChange={handleStartTime}
+                input={<input className='ml-1 mb-2 h-8 sm:w-1/2 bg-slate-200 outline-none rounded-md' placeholder='Time'/>}
+              />
+              
             </div>
           </div>  
           <div className='flex items-center justify-between'>
-            <span className='items-center w-6 '>End</span>
+            <span className='items-center w-6 text-gray-700'>End</span>
             <div className='flex flex-col sm:flex-row items-center'>
               <input  
                 className='ml-1 mb-2 h-8 sm:mb-0 sm:w-1/2 bg-gray-200 outline-none rounded-md relative' 
@@ -70,6 +82,7 @@ const EventInfo = () => {
                 : null 
               }
               <TimeField
+                onChange={handleEndTime}
                 input={<input className='ml-1 mb-2 h-8 sm:mb-0 sm:w-1/2 bg-gray-200 outline-none rounded-md' placeholder='Time'/>}
               />
               
@@ -81,10 +94,10 @@ const EventInfo = () => {
 
       
       <div className='flex gap-4 mt-8'>
-        <MapPinIcon className='h-6 w-6'/>
+        <MapPinIcon className='h-6 w-6 text-gray-500'/>
         <div  className='bg-slate-100 p-2 rounded-xl flex flex-col w-full'>
           <input placeholder='Add Event Location'className='bg-slate-100 outline-none' />
-          <span className='text-sm'>Offline location or virtual link</span>
+          <span className='text-sm text-gray-700'>Offline location or virtual link</span>
         </div>
       </div>
     </section>

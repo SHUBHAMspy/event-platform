@@ -51,7 +51,7 @@ const TextEditor = () => {
   }
 
   return (
-    <div className='flex flex-col items-center bg-slate-100 p-2 rounded-xl mt-8'>
+    <div className='flex flex-col items-center gap-1 bg-slate-100 p-2 rounded-xl mt-8'>
     {/* <PickerIcon
       pickerType={PICKER_TYPE.TEXT}
       hexColor={state.textColor}
