@@ -40,7 +40,7 @@
   .timeline {
     @apply
       border-l-4 border-gray-200
-      ml-3 mt-3 py-16
+      ml-3  py-16
       space-y-14
   }
 

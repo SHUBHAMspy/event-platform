@@ -6,7 +6,7 @@ const initialEventState = {
   endTime: '', 
   location: '',
   eventOptions:{
-    requireApproval: 'false',
+    requireApproval:  false,
     tickets: 'free',
     capacity: 'unlimited',
     visibility: 'public'

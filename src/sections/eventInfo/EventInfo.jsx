@@ -5,7 +5,7 @@ import 'react-time-picker/dist/TimePicker.css';
 import 'react-clock/dist/Clock.css';
 import TimeField from 'react-simple-timefield';
 import { EventContext } from '../../context/eventContext/EventContext';
-import { setEndDate, setEndTime, setStartDate, setStartTime } from '../../context/eventContext/actions';
+import { setEndDate, setEndTime, setLocation, setStartDate, setStartTime } from '../../context/eventContext/actions';
 
 const EventInfo = () => {
   const {state,dispatch} = useContext(EventContext)
@@ -18,10 +18,10 @@ const EventInfo = () => {
   console.log(state);
 
   const handleStartDate = (date) => {
-    setStartDate(dispatch,date)
+    setStartDate(dispatch,date.toString().split(" ").slice(0,4).join(' '))
   }
   const handleEndDate = (date) => {
-    setEndDate(dispatch,date)
+    setEndDate(dispatch,date.toString().split(" ").slice(0,4).join(' '))
   }
 
   const handleStartTime = (event,value) => {
@@ -31,6 +31,9 @@ const EventInfo = () => {
     setEndTime(dispatch,value)
   }
 
+  const handleLocationChange = (e) => {
+    setLocation(dispatch,e.target.value)
+  }
 
 
   return (
@@ -96,7 +99,7 @@ const EventInfo = () => {
       <div className='flex gap-4 mt-8'>
         <MapPinIcon className='h-6 w-6 text-gray-500'/>
         <div  className='bg-slate-100 p-2 rounded-xl flex flex-col w-full'>
-          <input placeholder='Add Event Location'className='bg-slate-100 outline-none' />
+          <input placeholder='Add Event Location'className='bg-slate-100 outline-none' onChange={(e) => handleLocationChange(e)} />
           <span className='text-sm text-gray-700'>Offline location or virtual link</span>
         </div>
       </div>

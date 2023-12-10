@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/solid';
 
-const Dropdown = ({ options, onSelect,style }) => {
+const Dropdown = ({ options, onSelect,style, context }) => {
   const [selectedOption, setSelectedOption] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
 
   const handleSelect = (option) => {
     setSelectedOption(option);
     setIsOpen(false);
-    onSelect(option);
+    if(context) onSelect(option,context)
+    else onSelect(option)
+    
   };
 
   return (
@@ -33,7 +35,7 @@ const Dropdown = ({ options, onSelect,style }) => {
         </button>
       </>
       {isOpen && (
-        <div className=" overflow-hidden h-36 overflow-y-auto origin-top-right absolute right-0  w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50">
+        <div className={`${options.length > 2 ? `overflow-hidden h-36 overflow-y-auto`: `h-max`} origin-top-right absolute right-0  w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50`}>
           <div
             className="py-1 "
             role="menu"

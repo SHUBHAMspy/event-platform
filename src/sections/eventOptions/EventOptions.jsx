@@ -1,8 +1,37 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import options from './options'
 import Dropdown from '../../components/common/dropDown/Dropdown'
+import ToggleButton from '../../components/common/ToggleButton/ToggleButton'
+import { setCapacity, setRequireApproval, setTicketsOption, setVisibility } from '../../context/eventContext/actions'
+import { EventContext } from '../../context/eventContext/EventContext'
+
 
 const EventOptions = () => {
+ const {state: {eventOptions},dispatch} = useContext(EventContext)
+ console.log(eventOptions);
+  const handleSelect = (option,context) => {
+    console.log(option,context);
+    switch (context) {
+      case "tickets" :
+        setTicketsOption(dispatch,option)
+        return;
+    
+      case "visibility" :
+        setVisibility(dispatch,option)
+        return;
+    
+      case "capacity" :
+        setCapacity(dispatch,option)
+        return;
+
+      // case "toggleButton" :
+      //   (option)
+      //   return;
+    
+      default:
+        break;
+    }
+  }
   return (
     <section className='mt-10'>
       <h6>Event Options</h6>
@@ -15,7 +44,14 @@ const EventOptions = () => {
                 <span className='text-gray-700'>{option.option}</span>
               </div>
               <div >
-                <div>{option.component}</div>
+                <div>
+                  {
+                    option.componentType === 'Dropdown' 
+                    ? <Dropdown options={option.dropdownOptions} onSelect={handleSelect} context={option.context}/>
+                    : <ToggleButton value={eventOptions.requireApproval} handleChange={(value) => setRequireApproval(dispatch,value)} />
+                  
+                  }
+                </div>
               </div>
             </div>
             

@@ -1,5 +1,6 @@
 import React from 'react';
 import useFetch from '../../../hooks/useFetch';
+import { ThreeCircles } from 'react-loader-spinner';
 
 const Timeline = () => {
   const url = `http://localhost:5000/events`
@@ -25,29 +26,58 @@ const Timeline = () => {
       <div className='sticky top-0 bg-white py-3 z-10 shadow-xl shadow-white'>
         <h2 className='group-date'>{new Date().toLocaleString('default',{month:'long'})}</h2>
       </div>
-      <div className='flex gap-16'>
-        <span>wed 13 Novw</span>
-        <div className='timeline w-full'>
-          <div className='relative'>
-            <div className='dot'></div>
-            <div className='pl-10'>
-              <div className='flex justify-between'>
-                <div className='flex flex-col justify-between bg-white'>
-                  <span className='bg-gray-500'>{data?.startTime ? data?.startTime : 'Loading...' }</span>
-                  <h3 className='timeline-title'>{data?.eventName ? data?.eventName : 'Loading...'}</h3>
-                  <span className='text-gray-500'></span>
-
-                </div>
-
-              </div>
-
-            </div>
-
+      {
+        loading
+        ? (
+          <div className='flex justify-center items-center w-full mt-10 mb-10'>
+            <ThreeCircles
+              height="80"
+              width="80"
+              radius="9"
+              color='#8F00FF'
+              ariaLabel="loading"
+              />
           </div>
+        ) : (
+          data.map((event) => (
+            <div className='flex gap-16'>
+              <span className='w-24'>{event.startDate}</span>
+              <div className='timeline w-full'>
+                <div className='relative'>
+                  <div className='dot'></div>
+                  <div className='pl-10'>
+                    <div className='flex flex-col md:flex-row justify-between w-full bg-white p-4 rounded-xl'>
+                      <div className='flex flex-col justify-between'>
+                        <span className='text-gray-500'>{event?.startTime}</span>
+                        <h3 className='timeline-title'>{event?.eventName}</h3>
+                        <span className='text-gray-500'>{event.eventOptions.visibility}</span>
+                      </div>
+                      <div
+                        className='h-16 w-16 rounded-xl'
+                        style={{
+                          background: event.backgroundImage,
+                          // backgroundColor: (
+                          //   startColor && endColor 
+                          //   ? ''
+                          //   : backgroundImage
+                          //   ? ''
+                          //   : backgroundColor
+                          // ),
+                          backgroundImage: `url(${event.backgroundImage})`,
+                          backgroundSize: 'cover',
+                          backgroundPosition: 'center',
+                        }}
+                      >
 
-        </div>
-
-      </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))
+        )
+      }
     </section>
     // <div className="flex flex-col space-y-8">
     //   {events.map((event, index) => (
