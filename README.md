@@ -10,7 +10,7 @@ Link: https://youtu.be/ReVm90MozWk
 Responsive UI: 
   | Laptop View                                   | Tab View                                  |  Mobile View                            |
   | :-----------                                  | :------------:                            |  ------------:                          |
-  | ![Laptop](./public/images/Event(Laptop).jpeg) | ![Tab](./public/images/Event(Tablet).jpeg)| ![](./public/images/Event(mobile).jpeg) |
+  | ![Laptop](./public/images/Event(Laptop).png) | ![Tab](./public/images/Event(Tablet).png)| ![](./public/images/Event(mobile).jpeg) |
   |                                               |                                           |                                         |
 
 
