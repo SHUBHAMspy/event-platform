@@ -41,7 +41,7 @@ const Timeline = () => {
         ) : (
           data.map((event) => (
             <div className='flex gap-16'>
-              <span className='w-24'>{event.startDate}</span>
+              <span className='w-24 mt-16'>{event.startDate}</span>
               <div className='timeline w-full'>
                 <div className='relative'>
                   <div className='dot'></div>

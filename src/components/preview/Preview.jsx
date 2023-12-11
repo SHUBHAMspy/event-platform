@@ -31,15 +31,15 @@ const Preview = () => {
         onKeyUp={handleKeyUp}
         suppressContentEditableWarning={true}
         style={{
-          background : background ? background : backgroundColor ? backgroundColor : `linear-gradient(${direction}, ${startColor}, ${endColor})`,
+          background : backgroundColor ? backgroundColor : `linear-gradient(${direction}, ${startColor}, ${endColor})`,
           height: `${height}px`,
-          // backgroundColor: (
-          //   startColor && endColor 
-          //   ? ''
-          //   : backgroundImage
-          //   ? ''
-          //   : backgroundColor
-          // ),
+          backgroundColor: (
+            startColor && endColor 
+            ? ''
+            : backgroundImage
+            ? ''
+            : backgroundColor
+          ),
           backgroundImage: `url(${backgroundImage})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',

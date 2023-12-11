@@ -1,4 +1,4 @@
-import { SET_BACKGROUND_COLOR, SET_BACKGROUND_IMAGE, SET_DIRECTION, SET_ENDCOLOR, SET_FONTFAMILY, SET_FONTSIZE, SET_STARTCOLOR, SET_TEXT, SET_TEXTCOLOR } from "./types"
+import { SET_BACKGROUND, SET_BACKGROUND_COLOR, SET_BACKGROUND_IMAGE, SET_DIRECTION, SET_ENDCOLOR, SET_FONTFAMILY, SET_FONTSIZE, SET_STARTCOLOR, SET_TEXT, SET_TEXTCOLOR } from "./types"
 
 const setText = (dispatch,text) => {
   dispatch({
@@ -27,6 +27,12 @@ const setFontFamily = (dispatch,fontFamily) => {
   })
 }
 
+const setBackGround = (dispatch,color) => {
+  dispatch({
+    type: SET_BACKGROUND,
+    payload: color
+  })
+}
 const setBackGrounColor = (dispatch,color) => {
   dispatch({
     type: SET_BACKGROUND_COLOR,
@@ -65,6 +71,7 @@ export {
   setTextColor,
   setFontFamily,
   setFontSize,
+  setBackGround,
   setBackGrounColor,
   setBackGroundImage,
   setStartColor,

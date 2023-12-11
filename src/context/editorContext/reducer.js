@@ -1,4 +1,4 @@
-import { SET_BACKGROUND_COLOR, SET_BACKGROUND_IMAGE, SET_DIRECTION, SET_ENDCOLOR, SET_FONTFAMILY, SET_FONTSIZE, SET_STARTCOLOR, SET_TEXT, SET_TEXTCOLOR } from "./types";
+import { SET_BACKGROUND, SET_BACKGROUND_COLOR, SET_BACKGROUND_IMAGE, SET_DIRECTION, SET_ENDCOLOR, SET_FONTFAMILY, SET_FONTSIZE, SET_STARTCOLOR, SET_TEXT, SET_TEXTCOLOR } from "./types";
 
 const editorReducer = (state,{type,payload}) => {
   switch (type) {
@@ -46,6 +46,12 @@ const editorReducer = (state,{type,payload}) => {
       return {
         ...state,
         direction: payload
+
+      }
+    case SET_BACKGROUND:
+      return {
+        ...state,
+        background: payload
 
       }
   

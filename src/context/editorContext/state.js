@@ -13,7 +13,7 @@ const initialEditorState = {
   fontFamily: 'arial',
   width: 320,
   height: 290,
-  background: 'linear-gradient(90.32deg, #8F00FF 0.28%, rgba(143, 0, 255, 0) 99.72%), #764ABC',
+  background: '',
   startColor: '',
   endColor: '',
   direction:''
