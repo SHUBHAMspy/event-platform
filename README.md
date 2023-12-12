@@ -4,7 +4,7 @@ AN Event creation platform to create and manage events.
 
 ## Video Demo
 
-Link: https://youtu.be/ReVm90MozWk
+Link: https://youtu.be/_xlRbAVIKoo
 
 
 Responsive UI: 

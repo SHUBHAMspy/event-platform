@@ -6,7 +6,7 @@ const Events = () => {
   return (
     <div className='container mx-auto bg-slate-100 w-full p-6 rounded-xl'>
       <div className='flex items-center justify-between'>
-        <h1 className='font-bold'>Events</h1>
+        <h1 className='font-bold text-3xl mb-8 '>Events</h1>
       </div>
       <Timeline/>
     </div>
